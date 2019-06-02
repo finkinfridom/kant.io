@@ -4,5 +4,13 @@
   "main": "index.js",
   "repository": "https://github.com/finkinfridom/kant.io.git",
   "author": "Alberto Maghini <finkin.fridom@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "boom": "^7.3.0",
+    "fastify": "^2.4.1",
+    "fastify-swagger": "^2.4.0"
+  }
 }
