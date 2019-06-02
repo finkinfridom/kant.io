@@ -1,0 +1,8 @@
+{
+  "name": "Kant.io",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/finkinfridom/kant.io.git",
+  "author": "Alberto Maghini <finkin.fridom@gmail.com>",
+  "license": "MIT"
+}
