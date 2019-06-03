@@ -1,16 +1,23 @@
 {
   "name": "Kant.io",
+  "description": "Critical path CSS rendering",
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/finkinfridom/kant.io.git",
   "author": "Alberto Maghini <finkin.fridom@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "start-dev": "nodemon index.js"
   },
   "dependencies": {
     "boom": "^7.3.0",
     "fastify": "^2.4.1",
+    "fastify-caching": "^5.0.0",
+    "fastify-static": "^2.4.0",
     "fastify-swagger": "^2.4.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
   }
 }
