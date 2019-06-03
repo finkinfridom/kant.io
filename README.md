@@ -15,7 +15,7 @@ this endpoint will receive the information from the page requesting it and then 
 
 ## Option 2 (TBD)
 
-Send a `pagePublished` notification with this payload:
+Send a `pagePublished` notification with this payload (through RabbitMQ or Azure ServiceBus):
 
     {
         "notificationId": [any unique-identifier valid for your system],

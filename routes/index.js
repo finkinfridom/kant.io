@@ -16,7 +16,7 @@ const routes = [
   },
   {
     method: "GET",
-    url: "/api/pixel",
+    url: "/:projectid/api/pixel",
     handler: apiController.getPixel
   }
 ];
