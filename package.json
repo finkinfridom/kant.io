@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": "https://github.com/finkinfridom/kant.io.git",
   "author": "Alberto Maghini <finkin.fridom@gmail.com>",
-  "license": "MIT",
+  "license": "apache-2.0",
   "scripts": {
     "start": "node index.js",
     "start-dev": "nodemon index.js"
