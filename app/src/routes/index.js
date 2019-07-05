@@ -1,5 +1,5 @@
 const apiController = require("../controllers/apiController");
-const package = require("../package.json");
+const package = require("../../package.json");
 const routes = [
   {
     method: "GET",
@@ -16,7 +16,7 @@ const routes = [
   },
   {
     method: "GET",
-    url: "/:projectid/api/pixel",
+    url: "/api/:projectid/pixel",
     handler: apiController.getPixel
   }
 ];
