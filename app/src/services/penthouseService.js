@@ -1,9 +1,6 @@
 const penthouse = require("penthouse");
-const fastify = require("fastify")({ logger: true });
-const https = require("https");
-const http = require("http");
+const { https, http } = require("follow-redirects");
 const url = require("url");
-const fs = require("fs");
 const parse = require("node-html-parser").parse;
 
 class PenthouseService {
@@ -32,7 +29,7 @@ class PenthouseService {
             })
             .on("end", () => {
               const body = Buffer.concat(chunks).toString();
-              resolve(body || "");
+              resolve({ body: body || "", url: res.responseUrl });
             })
             .on("error", reject);
         }
@@ -42,7 +39,7 @@ class PenthouseService {
     });
   }
   async lookup() {
-    const body = await this.get(this.url, "");
+    const { body } = await this.get(this.url, "");
     const root = parse(body);
     const links = root.querySelectorAll("link");
     return links
@@ -54,8 +51,8 @@ class PenthouseService {
       const cssString = [];
 
       for (const css of opts.css) {
-        const result = await this.get(this.url, css);
-        cssString.push(result);
+        const { body } = await this.get(this.url, css);
+        cssString.push(body);
       }
 
       penthouse({
@@ -64,11 +61,6 @@ class PenthouseService {
         keepLargerMediaQueries: true
       }).then(criticalCss => {
         resolve(criticalCss);
-        fs.writeFileSync("out.css", criticalCss);
-        //write to mapping:
-        //- list of input css
-        // output css
-        // output snippet for CSS critical
       });
     });
   }

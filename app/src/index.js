@@ -5,7 +5,10 @@ const path = require("path");
 // Import Swagger Options
 const swagger = require("./config/swagger");
 const fastifyCaching = require("fastify-caching");
-
+const mongoose = require("mongoose");
+const PORT = process.env.PORT || 3000;
+const CONN_STRING =
+  process.env.CONN_STRING || "mongodb://localhost:27017/kantio";
 // Register Swagger
 fastify.register(require("fastify-swagger"), swagger.options);
 // Register fastify-static
@@ -32,7 +35,7 @@ routes.forEach(route => {
 // Run the server!
 const start = async () => {
   try {
-    await fastify.listen(process.env.PORT || 3000, "::");
+    await fastify.listen(PORT, "::");
     fastify.swagger();
     fastify.log.info(`listening on ${fastify.server.address().port}`);
   } catch (err) {
@@ -40,4 +43,13 @@ const start = async () => {
     process.exit(1);
   }
 };
-start();
+
+mongoose.set("useCreateIndex", true);
+mongoose.connect(CONN_STRING, { useNewUrlParser: true });
+var db = mongoose.connection;
+db.on("error", e => {
+  fastify.log.error(e);
+});
+db.once("open", () => {
+  start();
+});
