@@ -2,7 +2,6 @@ const boom = require("boom");
 const fastify = require("fastify")({ logger: true });
 const { PenthouseService } = require("../services/penthouseService");
 const url = require("url");
-const domainRegex = new RegExp(/[\w]*\.([\w.]*)/gi);
 const Projects = require("../models/ProjectModel");
 const Outputs = require("../models/OutputModel");
 exports.getPixel = async (req, reply) => {
@@ -15,19 +14,6 @@ exports.getPixel = async (req, reply) => {
     fastify.log.info(`projectid: ${req.params.projectid}`);
     fastify.log.info(`css: ${req.query.css}`);
     const { hostname } = url.parse(referer);
-    if (process.env.ALLOWED_DOMAINS) {
-      domainRegex.lastIndex = 0;
-      const match = domainRegex.exec(hostname);
-      if (
-        !(
-          match &&
-          match[1] &&
-          process.env.ALLOWED_DOMAINS.indexOf(match[1]) > -1
-        )
-      ) {
-        return fastify.notFound(request, reply);
-      }
-    }
     fastify.log.info(`hostname ${hostname}`);
     const project = await Projects.findOne({
       identifier: req.params.projectid,
@@ -55,7 +41,7 @@ exports.getPixel = async (req, reply) => {
         css: css
       })
       .then(criticalCss => {
-        Outputs.update(
+        Outputs.updateOne(
           {
             identifier: project.identifier,
             referer: referer
@@ -74,7 +60,7 @@ exports.getPixel = async (req, reply) => {
             if (err) {
               throw err;
             }
-            fastify.log.info(raw);
+            fastify.log.info(`saved for ${project.identifier}:${referer}`);
           }
         );
       });
