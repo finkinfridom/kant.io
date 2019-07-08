@@ -1,11 +1,21 @@
 // Require the framework and instantiate it
-const fastify = require("fastify")({ logger: true });
+const fastify = require("fastify")({ logger: { prettyPrint: true } });
 const routes = require("./routes");
 const path = require("path");
 // Import Swagger Options
 const swagger = require("./config/swagger");
 const fastifyCaching = require("fastify-caching");
 const mongoose = require("mongoose");
+const minifier = require("html-minifier");
+const templatesFolder = "src/templates";
+const minifierOpts = {
+  removeComments: true,
+  removeCommentsFromCDATA: true,
+  collapseWhitespace: true,
+  collapseBooleanAttributes: true,
+  removeAttributeQuotes: true,
+  removeEmptyAttributes: true
+};
 const PORT = process.env.PORT || 3000;
 const CONN_STRING =
   process.env.CONN_STRING || "mongodb://localhost:27017/kantio";
@@ -27,6 +37,17 @@ fastify.register(
     if (err) throw err;
   }
 );
+fastify.register(require("point-of-view"), {
+  engine: {
+    ejs: require("ejs")
+  },
+  includeViewExtension: true,
+  templates: templatesFolder,
+  options: {
+    useHtmlMinifier: minifier,
+    htmlMinifierOptions: minifierOpts
+  }
+});
 
 routes.forEach(route => {
   fastify.route(route);

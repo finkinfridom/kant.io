@@ -4,26 +4,45 @@ const { PenthouseService } = require("../services/penthouseService");
 const url = require("url");
 const Projects = require("../models/ProjectModel");
 const Outputs = require("../models/OutputModel");
+const getProject = async (identifier, referer) => {
+  if (!referer) {
+    throw new Error("referer is mandatory");
+  }
+  const { hostname } = url.parse(referer);
+  const project = await Projects.findOne({
+    identifier: identifier,
+    hostname: hostname
+  });
+  if (!project) {
+    throw new Error(`hostname: ${hostname} projectid: ${identifier} not valid`);
+  }
+  return project;
+};
+exports.getCriticalCss = async (req, reply) => {
+  try {
+    const referer = req.query.referer;
+    const identifier = req.params.projectid;
+    const project = await getProject(identifier, referer);
+    const critical = await Outputs.findOne({
+      identifier: project.identifier,
+      referer: referer
+    });
+    if (!critical) {
+      throw new Error(`output not found for ${identifier}/${referer}`);
+    }
+    fastify.log.info(critical.inputs.length);
+    reply.view("critical-css", {
+      inputs: critical.inputs || [],
+      output: critical.output || ""
+    });
+  } catch (err) {
+    throw boom.boomify(err);
+  }
+};
 exports.getPixel = async (req, reply) => {
   try {
     const referer = req.headers.referer || req.query.referer;
-    if (!referer) {
-      throw new Error("referer is mandatory");
-    }
-    fastify.log.info(`req.headers.referer ${referer}`);
-    fastify.log.info(`projectid: ${req.params.projectid}`);
-    fastify.log.info(`css: ${req.query.css}`);
-    const { hostname } = url.parse(referer);
-    fastify.log.info(`hostname ${hostname}`);
-    const project = await Projects.findOne({
-      identifier: req.params.projectid,
-      hostname: hostname
-    });
-    if (!project) {
-      throw new Error(
-        `hostname: ${hostname} projectid: ${req.params.projectid} not valid`
-      );
-    }
+    const project = getProject(req.params.projectid, referer);
     const service = new PenthouseService({
       url: referer,
       projectid: project.identifier
@@ -64,7 +83,7 @@ exports.getPixel = async (req, reply) => {
           }
         );
       });
-    return reply.sendFile("1x1.png");
+    reply.sendFile("1x1.png");
   } catch (err) {
     throw boom.boomify(err);
   }

@@ -12,14 +12,18 @@
   },
   "dependencies": {
     "boom": "^7.3.0",
+    "ejs": "^2.6.2",
     "fastify": "^2.4.1",
     "fastify-caching": "^5.0.0",
     "fastify-static": "^2.4.0",
     "fastify-swagger": "^2.4.0",
     "follow-redirects": "^1.7.0",
+    "html-minifier": "^4.0.0",
     "mongoose": "^5.6.3",
     "node-html-parser": "^1.1.16",
-    "penthouse": "^2.2.0"
+    "penthouse": "^2.2.0",
+    "pino-pretty": "^3.2.0",
+    "point-of-view": "^3.5.0"
   },
   "devDependencies": {
     "nodemon": "^1.19.1"

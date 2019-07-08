@@ -12,6 +12,10 @@ exports.options = {
       url: package.repository,
       description: "Find more info here"
     },
+    tags: [
+      { name: "html", description: "HTML related end-points" },
+      { name: "code", description: "Code related end-points" }
+    ],
     host: process.env.SWAGGER_HOST || `localhost:${process.env.PORT || 3000}`,
     schemes: ["http", "https"],
     consumes: ["application/json"],
