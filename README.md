@@ -46,4 +46,4 @@ the HTTP request will reply back with an HTML snippet containing:
     loadCSS([css_path]);
     </script>
 
-see [src/templates/critical-css.ejs](src/templates/critical-css.ejs) for reference
+see [app/src/templates/critical-css.ejs](app/src/templates/critical-css.ejs) for reference
