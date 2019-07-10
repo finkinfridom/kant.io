@@ -34,3 +34,16 @@ Send a `pagePublished` notification with this payload (through RabbitMQ or Azure
 In your rendering pipeline, just before including your `<link>` elements, you MUST perform an HTTP request to:
 
 `https://kant.io/api/[project_id]/criticalcss?referer=[the URL you want to get the critical CSS]`
+
+the HTTP request will reply back with an HTML snippet containing:
+
+    link rel="preload" href="[css_path]" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
+    [loadCSS function from Filament Group]
+    <style>
+    [your critical path CSS]
+    </style>
+    <script>
+    loadCSS([css_path]);
+    </script>
+
+see [src/templates/critical-css.ejs](src/templates/critical-css.ejs) for reference
