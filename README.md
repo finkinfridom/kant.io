@@ -13,11 +13,24 @@ e.g.
 
 this endpoint will receive the information from the page requesting it and then it will create the proper critical CSS
 
+### Bonus tips
+
+In the above example you can also specify those optional parameters:
+
+- "css": Kant.io will automatically read and ingest all CSS `<link>` found in the page, but if you prefer to specify manually which items to be considered, you can specify them through `?css=file1.css&css=https://mydomain.com/file2.css`
+
 ## Option 2 (TBD)
 
 Send a `pagePublished` notification with this payload (through RabbitMQ or Azure ServiceBus):
 
     {
         "notificationId": [any unique-identifier valid for your system],
-        "path": [the page path just published]
+        "path": [the page path just published],
+        "css": [as per option 1 you can decide which CSS to be included. Optional]
     }
+
+# How to get critical CSS
+
+In your rendering pipeline, just before including your `<link>` elements, you MUST perform an HTTP request to:
+
+`https://kant.io/api/[project_id]/criticalcss?referer=[the URL you want to get the critical CSS]`
