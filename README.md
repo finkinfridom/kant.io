@@ -9,7 +9,7 @@ There are 2 ways to use Kant.io in your website:
 Inject an `<img>` HTML tag pointing to `https://kant.io/api/[project_id]/pixel`
 
 e.g.
-`<img src="https://kant.io/api/ab548547-9b0a-dabd-a6c2-0ec0cb8b950b/pixel"/>`
+`<img src="https://kantio.azurewebsites.net/api/ab548547-9b0a-dabd-a6c2-0ec0cb8b950b/pixel"/>`
 
 this endpoint will receive the information from the page requesting it and then it will create the proper critical CSS
 
@@ -33,7 +33,7 @@ Send a `pagePublished` notification with this payload (through RabbitMQ or Azure
 
 In your rendering pipeline, just before including your `<link>` elements, you MUST perform an HTTP request to:
 
-`https://kant.io/api/[project_id]/criticalcss?referer=[the URL you want to get the critical CSS]`
+`https://kantio.azurewebsites.net/api/[project_id]/criticalcss?referer=[the URL you want to get the critical CSS]`
 
 the HTTP request will reply back with an HTML snippet containing:
 
