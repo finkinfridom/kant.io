@@ -8,11 +8,11 @@ const routes = [
     },
     url: "/",
     handler: (request, reply) => {
-      return {
+      reply.send({
         name: package.name,
         version: package.version,
         documentation: "/documentation"
-      };
+      });
     }
   },
   {
@@ -23,7 +23,13 @@ const routes = [
         projectid: { type: "string" }
       },
       querystring: {
-        referer: { type: "string" }
+        referer: { type: "string" },
+        css: {
+          type: "array",
+          items: {
+            type: "string"
+          }
+        }
       },
       response: {
         200: {
@@ -38,7 +44,20 @@ const routes = [
     method: "GET",
     url: "/api/:projectid/criticalcss",
     handler: apiController.getCriticalCss,
-    querystring: {}
+    schema: {
+      tags: ["code"],
+      params: {
+        projectid: { type: "string" }
+      },
+      querystring: {
+        referer: { type: "string" }
+      },
+      response: {
+        200: {
+          type: "object"
+        }
+      }
+    }
   }
 ];
 module.exports = routes;

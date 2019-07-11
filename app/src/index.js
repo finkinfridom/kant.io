@@ -70,6 +70,7 @@ mongoose.connect(CONN_STRING, { useNewUrlParser: true });
 var db = mongoose.connection;
 db.on("error", e => {
   fastify.log.error(e);
+  process.exit(1);
 });
 db.once("open", () => {
   start();
