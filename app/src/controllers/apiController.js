@@ -10,8 +10,8 @@ const getProject = async (identifier, referer) => {
   }
   const { hostname } = url.parse(referer);
   const project = await Projects.findOne({
-    identifier: identifier,
-    hostname: hostname
+    identifier,
+    hostname
   });
   if (!project) {
     throw new Error(`hostname: ${hostname} projectid: ${identifier} not valid`);
