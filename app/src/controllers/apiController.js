@@ -57,7 +57,7 @@ exports.getPixel = async (req, reply) => {
     css = Array.isArray(css) ? css : [css];
     service
       .extract({
-        css: css
+        css
       })
       .then(criticalCss => {
         Outputs.updateOne(
