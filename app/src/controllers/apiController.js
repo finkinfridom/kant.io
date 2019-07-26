@@ -25,7 +25,7 @@ exports.getCriticalCss = async (req, reply) => {
     const project = await getProject(identifier, referer);
     const critical = await Outputs.findOne({
       identifier: project.identifier,
-      referer: referer
+      referer
     });
     if (!critical) {
       throw new Error(`output not found for ${identifier}/${referer}`);

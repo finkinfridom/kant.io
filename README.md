@@ -29,7 +29,7 @@ Send a `pagePublished` notification with this payload (through RabbitMQ or Azure
         "css": [as per option 1 you can decide which CSS to be included. Optional]
     }
 
-# How to get critical CSS
+## How to get critical CSS
 
 In your rendering pipeline, just before including your `<link>` elements, you MUST perform an HTTP request to:
 
