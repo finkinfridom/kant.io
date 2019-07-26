@@ -34,7 +34,9 @@ fastify.register(
     expiresIn: 86400
   },
   err => {
-    if (err) throw err;
+    if (err) {
+      throw err;
+    }
   }
 );
 fastify.register(require("point-of-view"), {
