@@ -63,11 +63,11 @@ exports.getPixel = async (req, reply) => {
         Outputs.updateOne(
           {
             identifier: project.identifier,
-            referer: referer
+            referer
           },
           {
             identifier: project.identifier,
-            referer: referer,
+            referer,
             inputs: css,
             output: criticalCss,
             lastUpdate: new Date()
@@ -75,7 +75,7 @@ exports.getPixel = async (req, reply) => {
           {
             upsert: true
           },
-          (err, raw) => {
+          err => {
             if (err) {
               throw err;
             }
