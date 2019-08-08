@@ -5,5 +5,5 @@
   "formation": {},
   "name": "kant.io",
   "scripts": {},
-  "stack": "container"
+  "stack": "heroku-18"
 }
