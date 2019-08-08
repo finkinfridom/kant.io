@@ -1,16 +1,9 @@
 {
-  "addons": [
-
-  ],
-  "buildpacks": [
-
-  ],
-  "env": {
-  },
-  "formation": {
-  },
+  "addons": [],
+  "buildpacks": [],
+  "env": {},
+  "formation": {},
   "name": "kant.io",
-  "scripts": {
-  },
-  "stack": "heroku-18"
+  "scripts": {},
+  "stack": "container"
 }
