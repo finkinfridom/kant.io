@@ -14,4 +14,4 @@ COPY /app .
 
 EXPOSE 3000
 
-ENTRYPOINT [ "yarn", "run", "start" ]
+CMD [ "yarn", "run", "start" ]
