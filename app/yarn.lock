@@ -1878,10 +1878,10 @@ pino@^5.13.1:
     quick-format-unescaped "^3.0.2"
     sonic-boom "^0.7.5"
 
-point-of-view@^3.5.0:
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/point-of-view/-/point-of-view-3.5.0.tgz#56ec984e9615f2ddad9b26383f3b73b8f4fab558"
-  integrity sha512-eiv49vaVAUSmrReRKlWgmYJ7wgcr3rGT6eAVuD6HmXTt1AKLY0CgYeu3msGW0n/X4iefdVsfpcPRsttWvS2CGQ==
+point-of-view@^3.5.1:
+  version "3.5.1"
+  resolved "https://registry.yarnpkg.com/point-of-view/-/point-of-view-3.5.1.tgz#2edd5472d5b98231ac92cbf401a9c4afd9e7f4b2"
+  integrity sha512-PJKSLuh/BYGH1VHx2ewyhx7yrIW42pshIJOQs5w9Xd6XZFkGxXHGuqx11CCaOfy6uQFIFndDmYT+YznytKC8qg==
   dependencies:
     fastify-plugin "^1.5.0"
     hashlru "^2.3.0"
