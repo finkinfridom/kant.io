@@ -26,6 +26,6 @@
     "point-of-view": "^3.5.0"
   },
   "devDependencies": {
-    "nodemon": "^1.19.1"
+    "nodemon": "^2.0.4"
   }
 }
