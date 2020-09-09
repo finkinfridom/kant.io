@@ -737,6 +737,13 @@ fastify-plugin@^1.2.1, fastify-plugin@^1.5.0, fastify-plugin@^1.6.0:
   dependencies:
     semver "^6.0.0"
 
+fastify-plugin@^2.0.0:
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/fastify-plugin/-/fastify-plugin-2.3.3.tgz#795ad6d00ffb08d5c0af51edecd25dee4c668b42"
+  integrity sha512-KjVwrTlbOGBLhF80tAYQ8qXQKvc1G7ETlFZbU4n19V1Xoo9BRNQgicv36y9AvPDcIn1hpeHDOdpPkMW02NOVIQ==
+  dependencies:
+    semver "^7.3.2"
+
 fastify-static@^2.3.4, fastify-static@^2.4.0:
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/fastify-static/-/fastify-static-2.5.0.tgz#7b36b83250e1a3e008043c5ab7ba4295ba895017"
@@ -1878,12 +1885,12 @@ pino@^5.13.1:
     quick-format-unescaped "^3.0.2"
     sonic-boom "^0.7.5"
 
-point-of-view@^3.5.0:
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/point-of-view/-/point-of-view-3.5.0.tgz#56ec984e9615f2ddad9b26383f3b73b8f4fab558"
-  integrity sha512-eiv49vaVAUSmrReRKlWgmYJ7wgcr3rGT6eAVuD6HmXTt1AKLY0CgYeu3msGW0n/X4iefdVsfpcPRsttWvS2CGQ==
+point-of-view@^4.5.1:
+  version "4.5.1"
+  resolved "https://registry.yarnpkg.com/point-of-view/-/point-of-view-4.5.1.tgz#efc1281c191686c43d7191a4cf1b32a1afb57762"
+  integrity sha512-wwu4YKd1E1vIHn5lgS10zbhfD0/ac/79a00AsDco0opUlOoVfX0+jPYMbnjgHffvDLPhyiakgPGaeaP47eScXw==
   dependencies:
-    fastify-plugin "^1.5.0"
+    fastify-plugin "^2.0.0"
     hashlru "^2.3.0"
 
 posix-character-classes@^0.1.0:
@@ -2167,6 +2174,11 @@ semver@^6.0.0:
   version "6.2.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-6.2.0.tgz#4d813d9590aaf8a9192693d6c85b9344de5901db"
   integrity sha512-jdFC1VdUGT/2Scgbimf7FSx9iJLXoqfglSF+gJeuNWVpiE37OIbc1jywR/GJyFdz3mnkz2/id0L0J/cr0izR5A==
+
+semver@^7.3.2:
+  version "7.3.2"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-7.3.2.tgz#604962b052b81ed0786aae84389ffba70ffd3938"
+  integrity sha512-OrOb32TeeambH6UrhtShmF7CRDqhL6/5XpPNp2DuRH6+9QLw/orhp72j87v8Qa1ScDkvrrBNpZcDejAirJmfXQ==
 
 send@^0.16.0:
   version "0.16.2"
