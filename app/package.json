@@ -22,7 +22,7 @@
     "mongoose": "^5.7.6",
     "node-html-parser": "^1.1.16",
     "penthouse": "^2.2.0",
-    "pino-pretty": "^3.2.1",
+    "pino-pretty": "^4.7.1",
     "point-of-view": "^4.14.0"
   },
   "devDependencies": {
