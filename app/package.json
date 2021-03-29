@@ -19,7 +19,7 @@
     "fastify-swagger": "^2.4.0",
     "follow-redirects": "^1.13.3",
     "html-minifier": "^4.0.0",
-    "mongoose": "^5.7.6",
+    "mongoose": "^5.12.2",
     "node-html-parser": "^3.1.2",
     "penthouse": "^2.3.2",
     "pino-pretty": "^4.7.1",
