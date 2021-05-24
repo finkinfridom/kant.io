@@ -1326,10 +1326,10 @@ no-case@^2.2.0:
   dependencies:
     lower-case "^1.1.1"
 
-node-html-parser@^3.1.2:
-  version "3.1.2"
-  resolved "https://registry.yarnpkg.com/node-html-parser/-/node-html-parser-3.1.2.tgz#b7a3e3ca9708624e50e0dd84ec988885b2aa6c90"
-  integrity sha512-t1FyoT8/3GTs1kgP70SsXAdQzxA0etXsBc8fPQYRwETucmgkD9f+1A7jVhSngUavEueR3fF8BkfDv3dRGWOOWQ==
+node-html-parser@^3.3.3:
+  version "3.3.3"
+  resolved "https://registry.yarnpkg.com/node-html-parser/-/node-html-parser-3.3.3.tgz#b937f6debbaa1e29cc34f43d7bc0295fb8c8082f"
+  integrity sha512-hyKoZ+qlr4/XFo9CUp6PKOkpBQ+28HXko7typIpPAoG9CIzAdVLbVON1etvoPXcr1dXKhApil4IVsrcTkKBb8w==
   dependencies:
     css-select "^3.1.2"
     he "1.2.0"
