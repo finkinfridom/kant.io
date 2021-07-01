@@ -16,7 +16,7 @@
     "fastify": "^3.14.1",
     "fastify-caching": "^6.1.0",
     "fastify-static": "^4.0.1",
-    "fastify-swagger": "^4.4.2",
+    "fastify-swagger": "^4.8.2",
     "follow-redirects": "^1.13.3",
     "html-minifier": "^4.0.0",
     "mongoose": "^5.12.2",
